@@ -1,0 +1,50 @@
+.calendar__widget {
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    padding: 0px 100px;
+}
+
+
+.MuiDateCalendar-root {
+    transform: scale(1.5);
+    margin: 100px auto 0 auto !important;
+}
+
+.MuiPickersDay-today {
+    background-color: #3278FF !important;
+    color: white !important;
+    font-weight: bold !important;
+    border: none !important;
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.MuiDayCalendar-weekContainer {
+    margin: 8px 0px;
+}
+
+.MuiPickersDay-dayWithMargin + .css-156tkzh-MuiButtonBase-root-MuiPickersDay-root {
+    margin: 0px 4px;
+}
+
+.Mui-selected {
+    background-color: #5DC48D !important;
+}
+
+@media only screen and (max-width: 1200px) {
+
+}
+
+@media only screen and (max-width: 768px) {
+
+}
+
+@media only screen and (max-width: 480px) {
+    .calendar__widget {
+        padding: 0px 20px;
+    }
+
+    .MuiDateCalendar-root {
+        transform: scale(1.2);
+    }    
+}

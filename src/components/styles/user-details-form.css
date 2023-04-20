@@ -1,0 +1,65 @@
+@font-face {
+    font-family: PP Telegraf;
+    src: url(../../assets/fonts/PPTelegraf-Regular.otf);
+}
+  
+@font-face {
+    font-family: Satoshi;
+    src: url(../../assets/fonts/satoshi/Satoshi-Variable.ttf);
+}
+
+.user-details__form {   
+    padding: 0px 480px;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.user-details__form label {
+    font-weight: bold;
+}
+
+.user-details__form form input{
+    width: 100%;
+    height: 64px;
+    border: 1px solid black;
+    padding: 12px 24px;
+    box-sizing: border-box;
+    border-radius: 40px;
+    margin: 8px 0px 40px 0px;
+    font-size: 18px;
+    color: black;
+}
+
+.user-details__form form input::placeholder {
+    font-size: 14px;
+    font-family: 'Satoshi', sans-serif;
+}
+
+.user-details__form input[type='submit'] {
+    width: 200px;
+    background-color: #3A84D7;
+    color: white;
+    border: none;
+    font-size: 18px;
+    text-transform: capitalize;
+    font-weight: bold;
+    font-family: "Satoshi";
+}
+
+@media only screen and (max-width: 1200px) {
+    .user-details__form {
+        padding: 0px 160px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .user-details__form {
+        padding: 0px 80px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .user-details__form {
+        padding: 0px 40px;
+    }
+}

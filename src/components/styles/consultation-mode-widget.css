@@ -1,0 +1,69 @@
+.consultation-mode-widget {
+    padding: 0px 400px;
+    box-sizing: border-box;
+
+}
+
+.consultation-mode__radiogroup {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    height: 100%;
+    flex-flow: column nowrap;
+}
+
+.consultation-mode-btn__container {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex: row nowrap;
+    /* border: 1px solid red; */
+}
+
+.consultation-mode-btn {
+    /* height: 60px; */
+    padding: 24px;
+    box-sizing: border-box;
+    background-color: rgb(217, 218, 217, 0.2);
+    margin-bottom: 16px;
+    border-radius: 20px;
+    margin-right: 0;
+}
+
+.consultation-mode-widget .css-j204z7-MuiFormControlLabel-root {
+    margin-left: 0;
+}
+
+.city-dropdown {
+    border-radius: 100px;
+    padding: 0px 16px;
+    margin-right: 24px;
+    margin-bottom: 24px;
+}
+
+.location__dropdowns {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.consultation-mode-widget .MuiSelect-select {
+    min-width: 160px;
+    border-radius: 20px;
+}
+
+@media only screen and (max-width: 600px){
+    .consultation-mode-widget {
+        padding: 0px 20px;
+        box-sizing: border-box;
+    }
+
+    .location__dropdowns {
+        display: flex;
+        flex-flow: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+}

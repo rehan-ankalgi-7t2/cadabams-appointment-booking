@@ -1,0 +1,51 @@
+@font-face {
+    font-family: PP Telegraf;
+    src: url(../../assets/fonts/PPTelegraf-Regular.otf);
+}
+
+@font-face {
+    font-family: Satoshi;
+    src: url(../../assets/fonts/satoshi/Satoshi-Variable.ttf);
+}
+
+.appointment__summary {
+    background-color: white;
+    height: 100vh;
+    overflow-y: scroll;
+    padding: 24px;
+    box-sizing: border-box;
+    overflow-y: scroll;
+    font-family: 'Satoshi', sans-serif;
+}
+
+.appointment__summary .MuiButton-outlined {
+    border-color: black;
+    color: black;
+    border-radius: 30px;
+}
+
+.appointment__field-data-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.appointment__summary h1 {
+    font-family: 'PP Telegraf';
+}
+
+.appointment__summary h2 {
+    margin-top: 24px;
+    margin-bottom: 0;
+    font-size: 18px;
+}
+
+.appointment__summary iframe {
+    width: 100%;
+    height: 300px;
+    border: none;
+    border-radius: 12px;
+    margin-top: 16px;
+}
