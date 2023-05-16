@@ -2,13 +2,13 @@ import { DateCalendar, LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
-import './styles/calendar-widget.css'
-import { updateCalendarWidgetDate } from '../features/calendarWidgetSlice'
+import './calendar-widget.css'
+import { updateCalendarWidgetDate } from '../../features/calendarWidgetSlice'
 
 import { Button } from '@mui/material'
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
-import './styles/Nav-btn-group.css'
+import '../navigation/Nav-btn-group.css'
 import { Link } from 'react-router-dom';
 
 

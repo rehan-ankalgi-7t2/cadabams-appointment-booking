@@ -13,7 +13,7 @@ import { Button, Divider } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit'
 import ListIcon from '@mui/icons-material/List';
 
-import './styles/appointment-summary.css'
+import './appointment-summary.css'
 import { useSelector } from 'react-redux';
 
 const drawerWidth = 320;

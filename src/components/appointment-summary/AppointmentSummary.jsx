@@ -2,7 +2,7 @@ import { Button } from '@mui/material'
 import EditIcon from '@mui/icons-material/Edit';
 
 import React from 'react'
-import './styles/appointment-summary.css'
+import './appointment-summary.css'
 
 const AppointmentSummary = () => {
   return (

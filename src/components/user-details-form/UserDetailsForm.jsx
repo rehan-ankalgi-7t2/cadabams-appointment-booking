@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
-import './styles/user-details-form.css'
+import './user-details-form.css'
 
-import { populateStateWithUserDetails } from '../features/userDetailsFormSlice'
-import { spinRight } from '../features/widgetSpinSlice';
+import { populateStateWithUserDetails } from '../../features/userDetailsFormSlice'
+import { spinRight } from '../../features/widgetSpinSlice';
 
 import { Button } from '@mui/material'
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
-import './styles/Nav-btn-group.css'
+import '../navigation/Nav-btn-group.css'
 import { Link } from 'react-router-dom';
 
 const UserDetailsForm = () => {

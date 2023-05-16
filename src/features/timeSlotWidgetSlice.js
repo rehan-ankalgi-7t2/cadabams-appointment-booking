@@ -10,7 +10,7 @@ const timeSlotWidgetSlice = createSlice({
     reducers: {
         updateTimeSlot: (state, action) => {
             state.selectedTimeSlot = action.payload.timeSlot
-            console.log(state.selectedTimeSlot)
+            // console.log(state.selectedTimeSlot)
         }
     }
 })

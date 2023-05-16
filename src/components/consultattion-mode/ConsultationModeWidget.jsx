@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { FormControl, RadioGroup, FormControlLabel, Radio, InputLabel, Select, MenuItem } from '@mui/material'
-import './styles/consultation-mode-widget.css'
+import './consultation-mode-widget.css'
 import { Box } from '@mui/system';
-import rehabCenters from '../utils/rehabCenters.json'
+import rehabCenters from '../../utils/rehabCenters.json'
 import { useDispatch } from 'react-redux';
-import { updateConsultationMode } from '../features/consultationModeWidgetSlice'
+import { updateConsultationMode } from '../../features/consultationModeWidgetSlice'
 
 import {Button} from '@mui/material';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
-import './styles/Nav-btn-group.css'
+import '../navigation/Nav-btn-group.css'
 import { Link } from 'react-router-dom';
 
 const ConsultationModeWidget = () => {

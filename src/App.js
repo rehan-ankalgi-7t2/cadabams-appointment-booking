@@ -1,13 +1,13 @@
 import './App.css';
 
-import AppointmentSummaryDrawer from './components/AppointmentSummaryDrawer';
-import NavButtonsGroup from './components/NavButtonsGroup';
+import AppointmentSummaryDrawer from './components/appointment-summary/AppointmentSummaryDrawer';
+import NavButtonsGroup from './components/navigation/NavButtonsGroup';
 
 import { useSelector } from 'react-redux';
-import UserDetailsForm from './components/UserDetailsForm';
-import CalendarWidget from './components/CalendarWidget';
-import TimeSlotWidget from './components/TimeSlotWidget';
-import ConsultationModeWidget from './components/ConsultationModeWidget';
+import UserDetailsForm from './components/user-details-form/UserDetailsForm';
+import CalendarWidget from './components/calendar/CalendarWidget';
+import TimeSlotWidget from './components/time-slot/TimeSlotWidget';
+import ConsultationModeWidget from './components/consultattion-mode/ConsultationModeWidget';
 import ConfirmBookingPage from './pages/ConfirmBookingPage'
 import BookingSuccessPage from './pages/BookingSuccessPage'
 import { Route, Routes } from 'react-router-dom';

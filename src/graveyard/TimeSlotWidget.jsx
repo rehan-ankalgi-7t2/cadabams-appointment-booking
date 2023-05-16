@@ -20,14 +20,15 @@ const TimeSlotWidget = () => {
   let config = {
     method: 'get',
     maxBodyLength: Infinity,
-    url: `https://crm.cadabams.com/restapi/1.0/object/slot.booking?domain=[('doctor_id','=',5314),('availability','=','open')]&fields=['doctor_id','start_datetime','stop_datetime','id']`,
+    // url: `https://crm.cadabams.com/restapi/1.0/object/slot.booking?domain=[('doctor_id','=',5314),('availability','=','open')]&fields=['doctor_id','start_datetime','stop_datetime','id']`,
+    url: "https://dev-cadambams-crm.p7devs.com/restapi/1.0/object/slot.booking?domain=[('doctor_id','=',5314),('availability','=','open')]&fields=['doctor_id','start_datetime','stop_datetime','id']",
     headers: { 
         // 'Cookie': 'session_id=fd65f21c120061ce905241be94d10f0fd807cf48',
-        'Host': 'crm.cadabams.com',
-        'User-Agent': 'PostmanRuntime/7.31.3',
-        'Accept': '*/*',
-        'Accept-Encoding': 'gzip, deflate, br',
-        'Connection': 'keep-alive'
+        // 'Host': 'crm.cadabams.com',
+        // 'User-Agent': 'PostmanRuntime/7.31.3',
+        // 'Accept': '*/*',
+        // 'Accept-Encoding': 'gzip, deflate, br',
+        // 'Connection': 'keep-alive'
     }
   };
 
@@ -38,12 +39,21 @@ const TimeSlotWidget = () => {
   const client = axios.create();
 
   //  Specify the OAuth options
+  // const options = {
+  //   algorithm: 'HMAC-SHA1',
+  //   secret: '1TsoADkdRqCcdi6gfZTarAx0pXaey5Pr',
+  //   tokenSecret: 'POwMpxRHniIwmb3ziothQf96LhiNfRvb',
+  //   key: 'j5r7K9FLCRbuli9w4Z4Ddyq6pnYY1ooc',
+  //   token: 'IK4BaunTMgBRk9J9wVLsUZW4eHjPZyYY',
+  //   includeBodyHash: true
+  // };
+
   const options = {
     algorithm: 'HMAC-SHA1',
-    secret: '1TsoADkdRqCcdi6gfZTarAx0pXaey5Pr',
-    tokenSecret: 'POwMpxRHniIwmb3ziothQf96LhiNfRvb',
-    key: 'j5r7K9FLCRbuli9w4Z4Ddyq6pnYY1ooc',
-    token: 'IK4BaunTMgBRk9J9wVLsUZW4eHjPZyYY',
+    key: 'dB0ewUazGroc9HkAQs08YC0SkeIOGc3C',
+    token: 'edUBoYYVdSR0Fx8DVg9Jm5YfLKkEbjtX',
+    secret: 'TNPaIh2CCKvtjnZuIO4TtsDJKG1nHq3m',
+    tokenSecret: 'RBNj8FVHhG9b0xMjWV15dNcoT1RtHXgc',
     includeBodyHash: true
   };
 
