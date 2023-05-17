@@ -11,21 +11,23 @@ import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import '../navigation/Nav-btn-group.css'
 import { Link } from 'react-router-dom';
 import axios from 'axios'
-// import addOAuthInterceptor from 'axios-oauth-1.0a';
-// import OAuth from 'oauth-1.0a';
-// import CryptoJS from 'crypto-js'
-
-// import HmacSHA1 from 'crypto-js'
 
 
 const TimeSlotWidget = () => {
   
- 
-  // const timeSlots = ['1:00 PM', '1:30 PM', '2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM', '4:00 PM', '4:30 PM', '5:00 PM']
   const dispatch = useDispatch();
-  
+  const { selectedDate } = useSelector((state) => state.calendarWidget)
   const [timeSlotList, setTimeSlotList] = useState([])
   const [timeSlot, setTimeSlot] = useState('')
+
+  const getFormattedDate = (dateStr) => {
+    var date = new Date(dateStr)
+    var startDate = new Date(date.getTime() - date.getTimezoneOffset() * 60000).toISOString().split("T")[0];
+    var nextDate = date.setDate(date.getDate() + 1);
+    var stopDate = new Date(date.getTime() - date.getTimezoneOffset() * 60000).toISOString().split("T")[0];
+    
+    return [startDate, stopDate]
+  }
   
   const handleTimeSlotChange = (e) => {
     setTimeSlot(e.target.value)
@@ -60,7 +62,7 @@ const TimeSlotWidget = () => {
     // https://crm.cadabams.com/restapi/1.0/object/slot.booking?domain=[('doctor_id','=',5314),('availability','=','open'),('start_datetime','>=','2023-06-16'), ('stop_datetime','<=','2023-06-16')]&fields=['doctor_id','start_datetime','stop_datetime','id' ]
 
     const requestData = {
-      url: `https://dev-cadambams-crm.p7devs.com/restapi/1.0/object/slot.booking?domain=[('doctor_id','=',5314),('availability','=','open'),('start_datetime','>=','2023-05-16'), ('stop_datetime','<=','2023-05-17')]&fields=['doctor_id','start_datetime','stop_datetime','id']`,
+      url: `https://dev-cadambams-crm.p7devs.com/restapi/1.0/object/slot.booking?domain=[('doctor_id','=',5314),('availability','=','open'),('start_datetime','>=','${getFormattedDate(selectedDate)[0]}'), ('stop_datetime','<=','${getFormattedDate(selectedDate)[0]}')]&fields=['doctor_id','start_datetime','stop_datetime','id']`,
       method: 'get',
       params: {
         // your API parameters
@@ -85,35 +87,28 @@ const TimeSlotWidget = () => {
       .then(response => {
         // handle response
         let slotsData = response.data
-        slotsData["slot.booking"].forEach((booking) => {
-          timeSlotList.push(booking.start_datetime.split(" ")[1])
-        })
-        // console.log("Success Response is ------------", response.data["slot.booking"][0].start_datetime.split(" ")[1])
+        setTimeSlotList(slotsData["slot.booking"])
       })
       .catch(error => {
         // handle error
         console.log("Error is --------------", error)
       });
     
-    }, [])
+    }, [selectedDate])
   
   
   useEffect(() => {
     dispatch(updateTimeSlot({timeSlot}))
   }, [timeSlot, dispatch])
 
-  const { selectedDate } = useSelector((state) => state.calendarWidget)
-
   return (
-
-
     <div className='time-slot'>
         <h1>{selectedDate}</h1>
-        <div>
+        <div className='slot-wrapper'>
         <FormControl>
             <RadioGroup defaultValue="female" onChange={handleTimeSlotChange} className='time-slots__container' name="radio-buttons-group">
                 {timeSlotList.map((slot) => (
-                    <FormControlLabel key={uuidv4()} className='time-slot__btns' value={slot} control={<Radio />} label={slot} />
+                    <FormControlLabel key={slot.id} className='time-slot__btns' value={slot.start_datetime.split(" ")[1].slice(0,5)} control={<Radio />} label={slot.start_datetime.split(" ")[1].slice(0,5)} />
                 ))}
             </RadioGroup>
         </FormControl>

@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { Divider, Button } from '@mui/material'
 import EditIcon from '@mui/icons-material/Edit'
-import { setWidgetNumber } from '../features/widgetSpinSlice'
 import { Link } from 'react-router-dom'
 
 
@@ -31,7 +30,7 @@ const ConfirmBookingPage = () => {
         <div className='appointment__field-data-wrapper'>
             <span>{`${selectedDate}`}</span>
             <Button variant='outlined' size='small' endIcon={<EditIcon/>}>
-              <Link></Link>
+              <Link>Change</Link>
             </Button>
         </div>
         <Divider/>

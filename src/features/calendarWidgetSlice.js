@@ -1,7 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const date = new Date();
+let formatDate = date.toDateString();
+console.log(`date generated in calendar slice: ${formatDate}`)
+
 const initialState = {
-    selectedDate: ''
+    selectedDate: formatDate
 }
 
 const calendarWidgetSlice = createSlice({

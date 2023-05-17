@@ -1,15 +1,17 @@
 .time-slot {
     padding: 0px 400px;
     box-sizing: border-box;
-    margin: 200px 0px 0px 0px;
 }
 
 .time-slots__container {
     width: 100%;
+    height: 50vh;
+    overflow-y: scroll;
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-flow: row wrap;
+    padding: 24px;
 }
 
 .time-slot .MuiFormGroup-root {
@@ -114,8 +116,12 @@
 }
 
 @media only screen and (max-width: 480px) {
-    .calendar__widget {
-        padding: 0px 20px;
+    .time-slot {
+        padding: 0px 16px;
+    }
+
+    .time-slots__container {
+        padding: none;
     }
 
     .MuiDateCalendar-root {

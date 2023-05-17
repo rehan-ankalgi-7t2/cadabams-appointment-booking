@@ -60,10 +60,19 @@
         box-sizing: border-box;
     }
 
+    .consultation-mode-btn {
+        width: 100%;
+    }
+
     .location__dropdowns {
         display: flex;
         flex-flow: column;
         align-items: flex-start;
         justify-content: flex-start;
+    }
+
+    .city-dropdown {
+        width: calc(100vw - 40px);
+        margin-right: 0;
     }
 }

@@ -21,7 +21,7 @@ const CalendarWidget = () => {
   const handleDateChange = (newDate) => {
     var date = new Date(newDate)
     var finalAppointmentDate = date.toDateString();
-    setAppointmentDate(finalAppointmentDate)
+    setAppointmentDate(date)
     dispatch(updateCalendarWidgetDate({ finalAppointmentDate }));
   }
   
@@ -29,7 +29,7 @@ const CalendarWidget = () => {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
         <div className='calendar__widget'>
-            <h1>Select Date</h1>
+            <h1>Select appointment date</h1>
             <DateCalendar
               onChange={(newValue) => handleDateChange(newValue.$d)}
               />
