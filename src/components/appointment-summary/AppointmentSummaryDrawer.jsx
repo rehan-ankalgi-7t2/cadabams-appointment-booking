@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { React, useState } from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -65,8 +65,8 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 
 export default function PersistentDrawerLeft() {
   const theme = useTheme();
-  const [open, setOpen] = React.useState(true);
-
+  const [open, setOpen] = useState(true);
+  
   const handleDrawerOpen = () => {
     setOpen(true);
   };

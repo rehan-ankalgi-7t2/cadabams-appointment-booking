@@ -1,6 +1,6 @@
 import { IconButton } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu';
-import './styles/header.css'
+import './header.css'
 
 import React from 'react'
 

@@ -13,6 +13,7 @@
     height: 100%;
     overflow-y: scroll;
     box-sizing: border-box;
+    margin-top: 100px;
 }
 
 .user-details__form label {
@@ -62,5 +63,6 @@
 @media only screen and (max-width: 480px) {
     .user-details__form {
         padding: 0px 40px;
+        margin-top: 0;
     }
 }

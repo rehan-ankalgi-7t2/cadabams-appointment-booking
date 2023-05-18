@@ -8,6 +8,9 @@
 # testing
 /coverage
 
+# credential files
+/src/utils/cred.js
+
 # production
 /build
 

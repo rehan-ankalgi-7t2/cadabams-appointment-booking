@@ -34,8 +34,8 @@ const ConsultationModeWidget = () => {
             default:
                 break;
         }
-        dispatch(updateConsultationMode({ consultationMode }))
-    }, [location, consultationMode, dispatch])
+        dispatch(updateConsultationMode({ consultationMode, treatmentCenter, location }))
+    }, [location, consultationMode, treatmentCenter, dispatch])
     
 
     const handleLocationChange = (event) => {

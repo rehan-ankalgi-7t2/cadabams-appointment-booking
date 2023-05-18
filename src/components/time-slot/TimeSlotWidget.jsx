@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react'
 import './time-slot-widget.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateTimeSlot } from '../../features/timeSlotWidgetSlice'
-import { v4 as uuidv4 } from 'uuid';
 
 import { Button } from '@mui/material'
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
@@ -20,6 +19,10 @@ const TimeSlotWidget = () => {
   const [timeSlotList, setTimeSlotList] = useState([])
   const [timeSlot, setTimeSlot] = useState('')
 
+  /*
+    @func getFormatDate
+    @desc convert date format from "Fri May 19 2023" to "2023-05-19" (yyyy-mm-dd)
+  */
   const getFormattedDate = (dateStr) => {
     var date = new Date(dateStr)
     var startDate = new Date(date.getTime() - date.getTimezoneOffset() * 60000).toISOString().split("T")[0];
@@ -32,18 +35,6 @@ const TimeSlotWidget = () => {
   const handleTimeSlotChange = (e) => {
     setTimeSlot(e.target.value)
   }
-  // Local KV pairs
-  // consumer_key: '3sR7t7r7nNCCugj5hco6OKEdY7o5FsRQ',
-  //     consumer_secret: '93ATtaV1LmJuniQMotflMkojoYz0DMKM',
-  //     token: 'lEYbTQEnXAOeUJaQQ9sbNfHN221SYFW5',
-  //     token_secret: '26q7tqS2DvcKqHdkUM80xFcyBecoARia',
-
-
-  // Dev KV pairs
-  // consumer_key: 'dB0ewUazGroc9HkAQs08YC0SkeIOGc3C',
-  // consumer_secret: 'TNPaIh2CCKvtjnZuIO4TtsDJKG1nHq3m',
-  // token: 'edUBoYYVdSR0Fx8DVg9Jm5YfLKkEbjtX',
-  // token_secret: 'RBNj8FVHhG9b0xMjWV15dNcoT1RtHXgc',
 
   useEffect(() => {
 
@@ -55,11 +46,6 @@ const TimeSlotWidget = () => {
       timestamp: Math.floor(Date.now() / 1000),
       nonce: Math.random().toString(36).substring(2),
     };
-    // dev
-    // `https://dev-cadambams-crm.p7devs.com/restapi/1.0/object/slot.booking?domain=[('doctor_id','=',5314),('availability','=','open')]&fields=['doctor_id','start_datetime','stop_datetime','id']`
-    // local
-    // http://192.168.1.232:8099/restapi/1.0/object/slot.booking?domain=[('doctor_id','=',5314),('availability','=','open')]&fields=['doctor_id','start_datetime','stop_datetime','id']
-    // https://crm.cadabams.com/restapi/1.0/object/slot.booking?domain=[('doctor_id','=',5314),('availability','=','open'),('start_datetime','>=','2023-06-16'), ('stop_datetime','<=','2023-06-16')]&fields=['doctor_id','start_datetime','stop_datetime','id' ]
 
     const requestData = {
       url: `https://dev-cadambams-crm.p7devs.com/restapi/1.0/object/slot.booking?domain=[('doctor_id','=',5314),('availability','=','open'),('start_datetime','>=','${getFormattedDate(selectedDate)[0]}'), ('stop_datetime','<=','${getFormattedDate(selectedDate)[0]}')]&fields=['doctor_id','start_datetime','stop_datetime','id']`,
@@ -68,10 +54,6 @@ const TimeSlotWidget = () => {
         // your API parameters
       },
     };
-    // local
-    // const signature = '93ATtaV1LmJuniQMotflMkojoYz0DMKM&26q7tqS2DvcKqHdkUM80xFcyBecoARia'
-    // dev
-    // TNPaIh2CCKvtjnZuIO4TtsDJKG1nHq3m&26RBNj8FVHhG9b0xMjWV15dNcoT1RtHXgc
 
     const signature = 'TNPaIh2CCKvtjnZuIO4TtsDJKG1nHq3m&RBNj8FVHhG9b0xMjWV15dNcoT1RtHXgc'
     const headers = {

@@ -4,12 +4,25 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-flow: row;
 }
 
 .confirm-booking-page__summary {
-    flex: 0.5;
-    padding: 200px 40px;
+    width: 50%;
+    padding: 100px 40px;
     box-sizing: border-box;
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+.confirm-booking-page__summary iframe {
+    width: 100%;
+}
+
+.confirm-booking-page .MuiButton-outlined {
+    border-color: black;
+    color: black;
+    border-radius: 30px;
 }
 
 .confirm-booking-page iframe {
@@ -18,6 +31,7 @@
 }
 
 .confirm-booking-page__content {
+    width: 50%;
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -51,4 +65,25 @@
 
 .confirm-booking-page .css-1e6y48t-MuiButtonBase-root-MuiButton-root:hover {
     background-color: #11AF22;
+}
+
+@media screen and (max-width: 900px) {
+    .confirm-booking-page {
+        flex-flow: column;
+        align-items: flex-start;
+        height: 100%;
+    }
+    
+    .confirm-booking-page__summary {
+        width: 100%;
+        height: 100%;
+        overflow-y: visible;
+    }
+
+    .confirm-booking-page__content {
+        width: 100%;
+        height: fit-content;
+        padding: 100px 40px;
+        margin-top: 300px;
+    }
 }

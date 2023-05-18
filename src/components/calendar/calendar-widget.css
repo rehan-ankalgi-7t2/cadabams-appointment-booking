@@ -2,7 +2,12 @@
     box-sizing: border-box;
     height: 100%;
     width: 100%;
-    padding: 0px 100px;
+    padding: 0px 300px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 100px;
+    flex-flow: column;
 }
 
 
@@ -42,6 +47,7 @@
 @media only screen and (max-width: 480px) {
     .calendar__widget {
         padding: 0px 20px;
+        margin-top: 0;
     }
 
     .MuiDateCalendar-root {
