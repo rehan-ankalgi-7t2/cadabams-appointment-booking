@@ -1,7 +1,7 @@
 import { DateCalendar, LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import './calendar-widget.css'
 import { updateCalendarWidgetDate } from '../../features/calendarWidgetSlice'
 
@@ -17,6 +17,7 @@ const CalendarWidget = () => {
 
   const [appointmentDate, setAppointmentDate] = useState(null)
   const dispatch = useDispatch();
+  const { doctorID } = useSelector((state) => state.app)
 
   const handleDateChange = (newDate) => {
     var date = new Date(newDate)
@@ -34,10 +35,10 @@ const CalendarWidget = () => {
               onChange={(newValue) => handleDateChange(newValue.$d)}
               />
             <div className='navigation-btn__group'>
-              <Link className='navigation-link-btn' to="/">
+              <Link className='navigation-link-btn' to={`/?doctorId=${doctorID}`}>
                 <Button color='primary' variant='outlined' className='navigation__btn' startIcon={<NavigateBeforeIcon/>}>Previous</Button>
               </Link>
-              <Link className='navigation-link-btn' to="/select-slot">
+              <Link className='navigation-link-btn' to={`/select-slot?doctorId=${doctorID}`}>
                 <Button color='primary' variant='outlined' className='navigation__btn' endIcon={<NavigateNextIcon/>}>Next</Button>
               </Link>
             </div>

@@ -4,6 +4,7 @@ import userDetailsFormReducer from '../../features/userDetailsFormSlice'
 import calendarWidgetReducer from '../../features/calendarWidgetSlice'
 import timeSlotWidgetReducer from '../../features/timeSlotWidgetSlice'
 import consultationModeWidgetReducer from '../../features/consultationModeWidgetSlice'
+import appReducer from '../../features/appSlice'
 
 export default configureStore({
     reducer: {
@@ -11,6 +12,7 @@ export default configureStore({
         userDetailsForm: userDetailsFormReducer,
         calendarWidget: calendarWidgetReducer,
         timeSlotWidget: timeSlotWidgetReducer,
-        consultationModeWidget: consultationModeWidgetReducer
+        consultationModeWidget: consultationModeWidgetReducer,
+        app: appReducer
     },
 })

@@ -18,6 +18,7 @@ const TimeSlotWidget = () => {
   const { selectedDate } = useSelector((state) => state.calendarWidget)
   const [timeSlotList, setTimeSlotList] = useState([])
   const [timeSlot, setTimeSlot] = useState('')
+  const { doctorID } = useSelector((state) => state.app) 
 
   /*
     @func getFormatDate
@@ -48,7 +49,7 @@ const TimeSlotWidget = () => {
     };
 
     const requestData = {
-      url: `https://dev-cadambams-crm.p7devs.com/restapi/1.0/object/slot.booking?domain=[('doctor_id','=',5314),('availability','=','open'),('start_datetime','>=','${getFormattedDate(selectedDate)[0]}'), ('stop_datetime','<=','${getFormattedDate(selectedDate)[0]}')]&fields=['doctor_id','start_datetime','stop_datetime','id']`,
+      url: `https://dev-cadambams-crm.p7devs.com/restapi/1.0/object/slot.booking?domain=[('doctor_id','=',${doctorID}),('availability','=','open'),('start_datetime','>=','${getFormattedDate(selectedDate)[0]}'), ('stop_datetime','<=','${getFormattedDate(selectedDate)[0]}')]&fields=['doctor_id','start_datetime','stop_datetime','id']`,
       method: 'get',
       params: {
         // your API parameters
@@ -76,7 +77,7 @@ const TimeSlotWidget = () => {
         console.log("Error is --------------", error)
       });
     
-    }, [selectedDate])
+    }, [selectedDate, doctorID])
   
   
   useEffect(() => {
@@ -96,10 +97,10 @@ const TimeSlotWidget = () => {
         </FormControl>
         </div>
         <div className='navigation-btn__group'>
-          <Link className='navigation-link-btn' to="/calendar">
+          <Link className='navigation-link-btn' to={`/calendar?doctorId=${doctorID}`}>
             <Button color='primary' variant='outlined' className='navigation__btn' startIcon={<NavigateBeforeIcon/>}>Previous</Button>
           </Link>
-          <Link className='navigation-link-btn' to="/consultation-mode">
+          <Link className='navigation-link-btn' to={`/consultation-mode?doctorId=${doctorID}`}>
             <Button color='primary' variant='outlined' className='navigation__btn' endIcon={<NavigateNextIcon/>}>Next</Button>
           </Link>
         </div>

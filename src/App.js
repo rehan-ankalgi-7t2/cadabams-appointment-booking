@@ -9,10 +9,15 @@ import ConsultationModeWidget from './components/consultattion-mode/Consultation
 import ConfirmBookingPage from './pages/confirm-booking-page/ConfirmBookingPage'
 import BookingSuccessPage from './pages/booking-success-page/BookingSuccessPage'
 import { Route, Routes, useParams, useSearchParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { updateDoctorID } from './features/appSlice';
 
 function App({children}) {
   let [searchParams, setsearchParams] = useSearchParams();
-  sessionStorage.setItem("doctorId", searchParams.get("doctorId"))
+  // sessionStorage.setItem("doctorId", searchParams.get("doctorId"))
+  let doctorId = searchParams.get("doctorId")
+  const dispatch = useDispatch()
+  dispatch(updateDoctorID({ doctorId }))
 
   return (
     

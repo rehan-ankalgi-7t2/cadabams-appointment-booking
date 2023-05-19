@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import './user-details-form.css'
 
 import { populateStateWithUserDetails } from '../../features/userDetailsFormSlice'
@@ -9,11 +9,13 @@ import { Button } from '@mui/material'
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import '../navigation/Nav-btn-group.css'
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 
 const UserDetailsForm = () => {
 
   const dispatch = useDispatch()
+
+  const { doctorID } = useSelector((state) => state.app)
 
   const [fullName, setFullName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -47,10 +49,10 @@ const UserDetailsForm = () => {
             <input type="submit" value="submit" />
         </form>
         <div className='navigation-btn__group'>
-          <Link className='navigation-link-btn' to="/">
+          <Link className='navigation-link-btn' to={`/?doctorId=${doctorID}`}>
             <Button color='primary' variant='outlined' className='navigation__btn' startIcon={<NavigateBeforeIcon/>}>Previous</Button>
           </Link>
-          <Link className='navigation-link-btn' to="/calendar">
+          <Link className='navigation-link-btn' to={`/calendar?doctorId=${doctorID}`}>
             <Button color='primary' variant='outlined' className='navigation__btn' endIcon={<NavigateNextIcon/>}>Next</Button>
           </Link>
         </div>

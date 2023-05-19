@@ -3,7 +3,7 @@ import { FormControl, RadioGroup, FormControlLabel, Radio, InputLabel, Select, M
 import './consultation-mode-widget.css'
 import { Box } from '@mui/system';
 import rehabCenters from '../../utils/rehabCenters.json'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { updateConsultationMode } from '../../features/consultationModeWidgetSlice'
 
 import {Button} from '@mui/material';
@@ -18,6 +18,7 @@ const ConsultationModeWidget = () => {
     const [treatmentCenter, setTreatmentCenter] = useState('');
     const [consultationMode, setConsultationMode] = useState('');
     const [treatmentCenterData, setTreatmentCenterData] = useState([]);
+    const { doctorID } = useSelector((state) => state.app)
 
     const dispatch = useDispatch();
 
@@ -110,10 +111,10 @@ const ConsultationModeWidget = () => {
         ) }
 
         <div className='navigation-btn__group'>
-          <Link className='navigation-link-btn' to="/select-slot">
+          <Link className='navigation-link-btn' to={`/select-slot?doctorId=${doctorID}`}>
             <Button color='primary' variant='outlined' className='navigation__btn' startIcon={<NavigateBeforeIcon/>}>Previous</Button>
           </Link>
-          <Link className='navigation-link-btn' to="/confirm-booking-details">
+          <Link className='navigation-link-btn' to={`/confirm-booking-details?doctorId=${doctorID}`}>
             <Button color='primary' variant='outlined' className='navigation__btn' endIcon={<NavigateNextIcon/>}>Confirm Booking</Button>
           </Link>
         </div>
