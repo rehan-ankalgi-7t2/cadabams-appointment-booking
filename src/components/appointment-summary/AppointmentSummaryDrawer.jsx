@@ -15,6 +15,7 @@ import ListIcon from '@mui/icons-material/List';
 
 import './appointment-summary.css'
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const drawerWidth = 320;
 
@@ -79,6 +80,7 @@ export default function PersistentDrawerLeft() {
   const { selectedDate } = useSelector((state) => state.calendarWidget)
   const { selectedTimeSlot } = useSelector((state) => state.timeSlotWidget)
   const { consultationMode } = useSelector((state) => state.consultationModeWidget)
+  const { doctorID } = useSelector((state) => state.app)
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -96,7 +98,7 @@ export default function PersistentDrawerLeft() {
             <ListIcon/>
           </IconButton>
           <Typography href="/" variant="h6" noWrap component="div">
-            Appointment Summary
+            <Link to={`/?doctorId=${doctorID}`}>Appointment Summary</Link>
           </Typography>
         </Toolbar>
       </AppBar>

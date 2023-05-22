@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './confirm-booking-page.css'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 import { Divider, Button } from '@mui/material'
 import EditIcon from '@mui/icons-material/Edit'
@@ -14,6 +14,7 @@ const ConfirmBookingPage = () => {
   const { selectedDate } = useSelector((state) => state.calendarWidget)
   const { selectedTimeSlot } = useSelector((state) => state.timeSlotWidget)
   const { consultationMode } = useSelector((state) => state.consultationModeWidget)
+  const { doctorID } = useSelector((state) => state.app)
 
   return (
     <div className='confirm-booking-page'>
@@ -30,7 +31,7 @@ const ConfirmBookingPage = () => {
         <div className='appointment__field-data-wrapper'>
             <span>{`${selectedDate}`}</span>
             <Button variant='outlined' size='small' endIcon={<EditIcon/>}>
-              <Link to="/calendar">Change</Link>
+              <Link to={`/calendar?doctorId=${doctorID}`}>Change</Link>
             </Button>
         </div>
         <Divider/>
@@ -39,7 +40,7 @@ const ConfirmBookingPage = () => {
         <div className='appointment__field-data-wrapper'>
             <span>{selectedTimeSlot}</span>
             <Button variant='outlined' size='small' endIcon={<EditIcon/>}>
-              <Link to="/select-slot">Change</Link>
+              <Link to={`/select-slot?doctorId=${doctorID}`}>Change</Link>
             </Button>
         </div>
         <Divider/>
@@ -48,7 +49,7 @@ const ConfirmBookingPage = () => {
         <div className='appointment__field-data-wrapper'>
             <span>{consultationMode}</span>
             <Button variant='outlined' size='small' endIcon={<EditIcon/>}>
-              <Link to="/consultation-mode">Change</Link>
+              <Link to={`/consultation-mode?doctorId=${doctorID}`}>Change</Link>
             </Button>
         </div>
         <Divider/>

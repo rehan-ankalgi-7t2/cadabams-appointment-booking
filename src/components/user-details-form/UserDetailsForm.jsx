@@ -9,7 +9,7 @@ import { Button } from '@mui/material'
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import '../navigation/Nav-btn-group.css'
-import { Link, Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const UserDetailsForm = () => {
 
