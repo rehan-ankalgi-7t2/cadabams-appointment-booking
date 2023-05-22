@@ -1,4 +1,4 @@
-import { React, useEffect } from 'react';
+import { React } from 'react';
 import './App.css';
 import AppointmentSummaryDrawer from './components/appointment-summary/AppointmentSummaryDrawer';
 import UserDetailsForm from './components/user-details-form/UserDetailsForm';

@@ -1,6 +1,6 @@
 import { DateCalendar, LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import React, { useState } from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import './calendar-widget.css'
 import { updateCalendarWidgetDate } from '../../features/calendarWidgetSlice'
@@ -15,14 +15,12 @@ import { Link } from 'react-router-dom';
 
 const CalendarWidget = () => {
 
-  const [appointmentDate, setAppointmentDate] = useState(null)
   const dispatch = useDispatch();
   const { doctorID } = useSelector((state) => state.app)
 
   const handleDateChange = (newDate) => {
     var date = new Date(newDate)
     var finalAppointmentDate = date.toDateString();
-    setAppointmentDate(date)
     dispatch(updateCalendarWidgetDate({ finalAppointmentDate }));
   }
   
