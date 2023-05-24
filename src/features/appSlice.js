@@ -10,7 +10,6 @@ const appSlice = createSlice({
     reducers: {
         updateDoctorID: (state, action) => {
             state.doctorID = action.payload.doctorId
-            console.log(action.payload.doctorId)
         }
     }
 })

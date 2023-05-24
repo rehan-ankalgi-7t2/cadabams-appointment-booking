@@ -17,24 +17,12 @@ const ConsultationModeWidget = () => {
     const [location, setLocation] = useState('');
     const [treatmentCenter, setTreatmentCenter] = useState('');
     const [consultationMode, setConsultationMode] = useState('');
-    const [treatmentCenterData, setTreatmentCenterData] = useState([]);
     const { doctorID } = useSelector((state) => state.app)
+    const { isAllParamsSelected } = useSelector((state) => state.consultationModeWidget)
 
     const dispatch = useDispatch();
 
     useEffect(() => {
-        switch (location) {
-            case "Bangalore":
-                setTreatmentCenterData(rehabCenters.Bangalore)
-                break;
-            
-            case "Hyderabad":
-                setTreatmentCenterData(rehabCenters.Hyderabad)
-                break;
-        
-            default:
-                break;
-        }
         dispatch(updateConsultationMode({ consultationMode, treatmentCenter, location }))
     }, [location, consultationMode, treatmentCenter, dispatch])
     
@@ -88,7 +76,7 @@ const ConsultationModeWidget = () => {
                     </Box>
                     <Box sx={{ minWidth: 200 }}>
                         <FormControl >
-                            <InputLabel color='mintyGreen' id="treatemnt-center-select-label">Treatment Center</InputLabel>
+                            <InputLabel color='mintyGreen' id="treatment-center-select-label">Treatment Center</InputLabel>
                             <Select
                                 className='city-dropdown'
                                 labelId="treatemnt-center-select-label"
@@ -98,9 +86,17 @@ const ConsultationModeWidget = () => {
                                 label="Treatment center"
                                 onChange={handleCenterChange}
                             >
-                                {treatmentCenterData.map((data) => (
-                                    <MenuItem value={`${data}`}>{data}</MenuItem>
-                                ))}
+                                {location === "Bangalore" ? 
+                                    rehabCenters.Bangalore.map((item) => (
+                                        <MenuItem key={item.id} value={item.location}>{item.location}</MenuItem>
+                                    ))
+                                : location === "Hyderabad" ?
+                                    rehabCenters.Hyderabad.map((item) => (
+                                        <MenuItem key={item.id} value={item.centerName}>{item.location}</MenuItem>
+                                    ))
+                                
+                                : (<MenuItem></MenuItem>)
+                                }
                             </Select>
                         </FormControl>
                     </Box>
@@ -111,10 +107,10 @@ const ConsultationModeWidget = () => {
         ) }
 
         <div className='navigation-btn__group'>
-          <Link className='navigation-link-btn' to={`/select-slot?doctorId=${doctorID}`}>
+          <Link className='navigation-link-btn' to={ isAllParamsSelected ? `/select-slot?doctorId=${doctorID}` : `/consultation-mode?doctorId=${doctorID}`}>
             <Button color='primary' variant='outlined' className='navigation__btn' startIcon={<NavigateBeforeIcon/>}>Previous</Button>
           </Link>
-          <Link className='navigation-link-btn' to={`/confirm-booking-details?doctorId=${doctorID}`}>
+          <Link className='navigation-link-btn' to={ isAllParamsSelected ? `/confirm-booking-details?doctorId=${doctorID}` : `/consultation-mode?doctorId=${doctorID}`}>
             <Button color='primary' variant='outlined' className='navigation__btn' endIcon={<NavigateNextIcon/>}>Confirm Booking</Button>
           </Link>
         </div>

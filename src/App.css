@@ -1,6 +1,6 @@
 .App {
   width: inherit;
-  height: 100vh;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -14,11 +14,12 @@ main {
   align-items: center;
   justify-content: center;
   flex-flow: column nowrap;
+  background: rgba(217, 218, 217, 0.24);
 }
 
 
 .App__multistepform {
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   background: rgba(217, 218, 217, 0.24);
   box-sizing: border-box;

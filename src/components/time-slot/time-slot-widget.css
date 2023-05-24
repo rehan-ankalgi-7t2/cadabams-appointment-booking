@@ -1,5 +1,5 @@
 .time-slot {
-    padding: 0px 400px;
+    padding: 100px 16vw;
     box-sizing: border-box;
     height: 100%;
     width: 100%;
@@ -7,12 +7,11 @@
     align-items: flex-start;
     justify-content: flex-start;
     flex-flow: column;
-    margin-top: 100px;
 }
 
 .time-slots__container {
     width: 100%;
-    height: 66vh;
+    height: 60vh;
     overflow-y: scroll;
     display: flex;
     align-items: center;
@@ -82,56 +81,39 @@
     background-color: #5DC48D;
 }
 
-@media only screen and (max-width: 1400px) {
+@media only screen and (max-width: 768px) {
     .time-slot {
-        padding: 0px 200px;
-    }
-}
-
-@media only screen and (max-width: 1015px) {
-    .time-slot {
-        padding: 0px 120px;
-    }
-}
-
-@media only screen and (max-width: 855px) {
-    .time-slot {
-        padding: 0px 80px;
-    }
-}
-
-@media only screen and (max-width: 774px) {
-    .time-slot {
-        padding: 0px 20px;
-    }
-}
-
-@media only screen and (max-width: 655px) {
-    .time-slot {
-        padding: 0px 20px;
+        padding: 100px 8vw;
     }
 
     .time-slot__btns {
-        width: auto;
-        height: auto;
-        padding: 16px;
+        height: 80px;
+        width: 160px;
     }
-}
-
-@media only screen and (max-width: 768px) {
-
 }
 
 @media only screen and (max-width: 480px) {
     .time-slot {
-        padding: 0px 16px;
+        padding: 24px 16px;
     }
 
     .time-slots__container {
-        padding: none;
+        padding: 0;
+        flex-flow: column;
     }
 
     .MuiDateCalendar-root {
         transform: scale(1.2);
     }    
+
+    .time-slot__btns {
+        height: 80px;
+        width: 100%;
+        margin: 0;
+    }
+
+    .time-slot .css-j204z7-MuiFormControlLabel-root {
+        margin: 0 !important;
+        margin-bottom: 16px !important;
+    }
 }

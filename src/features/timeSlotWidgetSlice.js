@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    selectedTimeSlot: ''
+    selectedTimeSlot: '',
+    isSlotSelected: false
 }
 
 const timeSlotWidgetSlice = createSlice({
@@ -11,10 +12,13 @@ const timeSlotWidgetSlice = createSlice({
         updateTimeSlot: (state, action) => {
             state.selectedTimeSlot = action.payload.timeSlot
             // console.log(state.selectedTimeSlot)
+        },
+        updateSlotSelectionStatus: (state, action) => {
+            state.isSlotSelected = action.payload
         }
     }
 })
 
-export const { updateTimeSlot } = timeSlotWidgetSlice.actions
+export const { updateTimeSlot, updateSlotSelectionStatus } = timeSlotWidgetSlice.actions
 
 export default timeSlotWidgetSlice.reducer

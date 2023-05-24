@@ -9,11 +9,10 @@
 }
 
 .user-details__form {   
-    padding: 0px 480px;
+    padding: 100px 480px;
     height: 100%;
     overflow-y: scroll;
     box-sizing: border-box;
-    margin-top: 100px;
 }
 
 .user-details__form label {
@@ -48,21 +47,27 @@
     font-family: "Satoshi";
 }
 
+.user-details__form .navigation-btn__group {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
 @media only screen and (max-width: 1200px) {
     .user-details__form {
-        padding: 0px 160px;
+        padding: 100px 160px;
     }
 }
 
 @media only screen and (max-width: 768px) {
     .user-details__form {
-        padding: 0px 80px;
+        padding: 24px 80px;
     }
 }
 
 @media only screen and (max-width: 480px) {
     .user-details__form {
-        padding: 0px 40px;
+        padding: 40px 40px;
         margin-top: 0;
     }
 }

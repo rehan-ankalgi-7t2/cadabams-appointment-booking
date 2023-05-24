@@ -2,29 +2,28 @@
     box-sizing: border-box;
     height: 100%;
     width: 100%;
-    padding: 0px 300px;
+    padding: 100px 300px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    margin-top: 100px;
     flex-flow: column;
 }
 
 
-.MuiDateCalendar-root {
+.calendar__widget .MuiDateCalendar-root {
     transform: scale(1.5);
-    margin: 100px auto 0 auto !important;
+    margin: 40px auto 200px auto;
 }
 
-.MuiPickersDay-today {
-    background-color: #3278FF !important;
-    color: white !important;
-    font-weight: bold !important;
+.calendar__widget .MuiPickersDay-today {
+    background-color: #3278FF;
+    color: white;
+    font-weight: bold;
     border: none !important;
     box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
 }
 
-.MuiDayCalendar-weekContainer {
+.calendar__widget .MuiDayCalendar-weekContainer {
     margin: 8px 0px;
 }
 
@@ -32,8 +31,9 @@
     margin: 0px 4px;
 }
 
-.Mui-selected {
+.calendar__widget .Mui-selected {
     background-color: #5DC48D !important;
+    font-weight: bold;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -46,11 +46,11 @@
 
 @media only screen and (max-width: 480px) {
     .calendar__widget {
-        padding: 0px 20px;
+        padding: 24px 20px;
         margin-top: 0;
     }
 
-    .MuiDateCalendar-root {
+    .calendar__widget .MuiDateCalendar-root {
         transform: scale(1.2);
     }    
 }

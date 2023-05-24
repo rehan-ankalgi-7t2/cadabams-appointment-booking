@@ -2,7 +2,7 @@ import { FormControl, Radio, RadioGroup, FormControlLabel } from '@mui/material'
 import React, { useState, useEffect } from 'react'
 import './time-slot-widget.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { updateTimeSlot } from '../../features/timeSlotWidgetSlice'
+import { updateSlotSelectionStatus, updateTimeSlot } from '../../features/timeSlotWidgetSlice'
 
 import { Button } from '@mui/material'
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
@@ -19,6 +19,7 @@ const TimeSlotWidget = () => {
   const [timeSlotList, setTimeSlotList] = useState([])
   const [timeSlot, setTimeSlot] = useState('')
   const { doctorID } = useSelector((state) => state.app) 
+  const { isSlotSelected } = useSelector((state) => state.timeSlotWidget) 
 
   /*
     @func getFormatDate
@@ -35,6 +36,7 @@ const TimeSlotWidget = () => {
   
   const handleTimeSlotChange = (e) => {
     setTimeSlot(e.target.value)
+    dispatch(updateSlotSelectionStatus(true))
   }
 
   useEffect(() => {
@@ -97,10 +99,10 @@ const TimeSlotWidget = () => {
         </FormControl>
         </div>
         <div className='navigation-btn__group'>
-          <Link className='navigation-link-btn' to={`/calendar?doctorId=${doctorID}`}>
+          <Link className='navigation-link-btn' to={isSlotSelected ? `/calendar?doctorId=${doctorID}` : `/select-slot?doctorId=${doctorID}`}>
             <Button color='primary' variant='outlined' className='navigation__btn' startIcon={<NavigateBeforeIcon/>}>Previous</Button>
           </Link>
-          <Link className='navigation-link-btn' to={`/consultation-mode?doctorId=${doctorID}`}>
+          <Link className='navigation-link-btn' to={isSlotSelected ? `/consultation-mode?doctorId=${doctorID}` : `/select-slot?doctorId=${doctorID}`}>
             <Button color='primary' variant='outlined' className='navigation__btn' endIcon={<NavigateNextIcon/>}>Next</Button>
           </Link>
         </div>

@@ -1,11 +1,24 @@
 {
     "Bangalore": [
-        "Koramangala",
-        "J.P Nagar",
-        "Electronic City",
-        "Kanakpura"
+        {
+            "id": 11,
+            "centerName": "Cadabams Hospital",
+            "location": "Jayaprakash Nagar (JP Nagar)",
+            "mapLink": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.0266357912915!2d77.58442637598827!3d12.90600878740338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1513b91d8bb9%3A0x6b0b777280a26610!2sCadabams%20Hospitals!5e0!3m2!1sen!2sin!4v1684848897180!5m2!1sen!2sin"
+        },
+        {
+            "id": 12,
+            "centerName": "Mindtalk - Indiranagar",
+            "location": "Indiranagar",
+            "mapLink": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.9751390808465!2d77.6407870759892!3d12.973441887342062!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae17b65bcbf9bb%3A0x1585bef6d02b6061!2sCadabam&#39;s%20MindTalk!5e0!3m2!1sen!2sin!4v1684848440089!5m2!1sen!2sin"
+        }
     ],
     "Hyderabad": [
-        "GachiBowli"
+        {
+            "id": 21,
+            "centerName": "Cadabams Hyderabad",
+            "location": "Gachi Bowli",
+            "mapLink": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.6998542579677!2d78.32133107605947!3d17.42618598346761!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9377df110eaf%3A0x815789ff67ea834!2sCadabams%20Hyderabad!5e0!3m2!1sen!2sin!4v1684849569150!5m2!1sen!2sin"
+        }
     ]
 }

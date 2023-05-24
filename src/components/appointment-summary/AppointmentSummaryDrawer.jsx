@@ -135,21 +135,25 @@ export default function PersistentDrawerLeft() {
         <h2>Date</h2>
         <div className='appointment__field-data-wrapper'>
             <span>{`${selectedDate}`}</span>
-            <Button variant='outlined' size='small' endIcon={<EditIcon/>}>Change</Button>
+            <Button variant='outlined' size='small' endIcon={<EditIcon/>}> <Link to={`/calendar?doctorId=${doctorID}`}>Change</Link> </Button>
         </div>
         <Divider/>
 
         <h2>Time</h2>
         <div className='appointment__field-data-wrapper'>
             <span>{selectedTimeSlot}</span>
-            <Button variant='outlined' size='small' endIcon={<EditIcon/>}>Change</Button>
+            <Button variant='outlined' size='small' endIcon={<EditIcon/>}>
+              <Link to={`/select-slot?doctorId=${doctorID}`}>Change</Link>
+            </Button>
         </div>
         <Divider/>
 
         <h2>Consultation Mode</h2>
         <div className='appointment__field-data-wrapper'>
             <span>{consultationMode}</span>
-            <Button variant='outlined' size='small' endIcon={<EditIcon/>}>Change</Button>
+            <Button variant='outlined' size='small' endIcon={<EditIcon/>}>
+              <Link to={`/?doctorId=${doctorID}`}>Change</Link>
+            </Button>
         </div>
         <Divider/>
 

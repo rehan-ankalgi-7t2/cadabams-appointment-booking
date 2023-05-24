@@ -4,7 +4,8 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
     fullName: '',
     phoneNumber: '',
-    emailAddress: ''
+    emailAddress: '',
+    isSubmitted: false
 }
 
 const userDetailsFormslice = createSlice({
@@ -19,11 +20,14 @@ const userDetailsFormslice = createSlice({
             sessionStorage.setItem("fullName", action.payload.fullName)
             sessionStorage.setItem("phoneNumber", action.payload.phoneNumber)
             sessionStorage.setItem("emailAddress", action.payload.emailAddress)
+        },
+        updateSubmissionStatus: (state, action) => {
+            state.isSubmitted = action.payload
         }
     }
 })
 
 
-export const { populateStateWithUserDetails } = userDetailsFormslice.actions
+export const { populateStateWithUserDetails, updateSubmissionStatus } = userDetailsFormslice.actions
 
 export default userDetailsFormslice.reducer
